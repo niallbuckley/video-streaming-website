@@ -1,4 +1,4 @@
-'use-client';
+'use client';
 
 import { Fragment } from "react";
 import styles from './sign-in.module.css';
