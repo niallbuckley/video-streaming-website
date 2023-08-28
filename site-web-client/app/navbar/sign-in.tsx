@@ -1,3 +1,5 @@
+'use-client';
+
 import { Fragment } from "react";
 import styles from './sign-in.module.css';
 import { signInWithGoogle, signOut } from "../firebase/firebase";
