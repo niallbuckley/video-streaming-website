@@ -28,7 +28,7 @@ export default function Navbar(){
                 <Image width={90} height={20} src="/youtube-logo.svg" alt="You Tube Logo"/> 
             </Link>
             {
-                <Upload/>
+                user &&  <Upload/>
             }
             <SignIn user={user}/>
         </nav>
