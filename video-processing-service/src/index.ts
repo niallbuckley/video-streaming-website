@@ -56,6 +56,11 @@ app.post("/process-video", async (req, res) => {
   // Upload the processed video to Cloud Storage
   await uploadProceesedVideo(outputFileName);
 
+  await setVideo(videoId, {
+    status: 'processed',
+    filename: outputFileName
+  });
+
   await Promise.all([
     deleteRawVideo(inputFileName),
     deleteProcessedVideo(outputFileName)
