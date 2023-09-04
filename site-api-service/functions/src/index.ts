@@ -11,6 +11,7 @@ const firestore = new Firestore();
 const storage = new Storage();
 
 const rawVideoBucketName = "niall-site-raw-videos";
+const videoCollectionId = "videos";
 
 export const createUser = functions.auth.user().onCreate((user) => {
     const userInfo = {
@@ -47,3 +48,8 @@ export const generateUploadUrl = onCall({maxInstances:1}, async (request) => {
     
     return {url, fileName};
 });
+
+export const getVideos = onCall({maxInstances: 1}, async() => {
+    const querySnapshot = await firestore.collection(videoCollectionId).limit(10).get();
+    return querySnapshot.docs.map((doc) => doc.data());
+})
